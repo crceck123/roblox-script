@@ -5,3 +5,4 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/RS/main/Simpl
 loadstring(game:HttpGet("https://scriptblox.com/raw/Prison-Life-tiger-admin-Feb-1-working-10302"))()
 -- discord.gg/betterroblox
 loadstring(game:HttpGet('https://astroswrld.club/BetterRoblox/Loader'))()
+loadstring("print("done")")()
