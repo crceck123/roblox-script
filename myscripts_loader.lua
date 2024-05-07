@@ -1,6 +1,6 @@
 loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
 loadstring(game:HttpGet("https://pastebin.com/raw/WxS2CFBX"))()
-if game.Players.LocalPlayer.PlayerGui.ScreenGui.Toogle.Corner
+if game.Players.LocalPlayer.PlayerGui.ScreenGui.Toogle.Corner do
   game.Players.LocalPlayer.PlayerGui.ScreenGui:Destroy()
 else
   print("can't delete screengui")
