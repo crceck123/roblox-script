@@ -3,3 +3,5 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/Chillz-s-s
 -- loadstring(game:HttpGet("https://raw.githubusercontent.com/Babyhamsta/RBLX_Scripts/main/Universal/BypassedDarkDexV3.lua", true))()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/RS/main/SimpleSpyMobile"))()
 loadstring(game:HttpGet("https://scriptblox.com/raw/Prison-Life-tiger-admin-Feb-1-working-10302"))()
+-- discord.gg/betterroblox
+loadstring(game:HttpGet('https://astroswrld.club/BetterRoblox/Loader'))()
