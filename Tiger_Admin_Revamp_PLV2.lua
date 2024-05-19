@@ -1,3 +1,7 @@
+--[[
+Forged by h17s3
+]]
+
 if not getconnections or not hookmetamethod or not getnamecallmethod or not ((getgenv and getgenv()) or _G) then
 	game:GetService("StarterGui"):SetCore("SendNotification", {Title = "Tiger Admin",Text = "Executor is not supported!",Duration = 10,})
 end
@@ -5,7 +9,7 @@ if not workspace:FindFirstChild("Criminals Spawn") or not workspace:FindFirstChi
 	game:GetService("StarterGui"):SetCore("SendNotification", {Title = "Tiger Admin",Text = "Criminals spawn not found! Please rejoin.",Duration = 10,})
 end
 game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart")
-if game:FindFirstChild("Tiger_admin_loaded") then  ((getgenv and getgenv()) or _G).NotifTiger("Tiger admin is already executed!",false) return warn("Already loaded") end
+if game:FindFirstChild("Tiger_revamp_loaded") then  ((getgenv and getgenv()) or _G).NotifTiger("Tiger admin is already executed!",false) return warn("Already loaded") end
 local Player, plr,Folder = game:GetService("Players").LocalPlayer, game:GetService("Players").LocalPlayer,Instance.new("Folder",game)
 local OldHook, hookmetamethod, getnamecallmethod = nil, hookmetamethod, getnamecallmethod
 local HasGamepass,UserInputService = game:GetService("MarketplaceService"):UserOwnsGamePassAsync(Player.UserId, 96651),game:GetService("UserInputService")
@@ -22,7 +26,7 @@ local Prefix = "!"
 
 --------
 Folder.Name = "Tiger_revamp_loaded"
-TigerGui = Instance.new("TigerGui")
+ScreenGui = Instance.new("ScreenGui")
 CmdBarFrame = Instance.new("Frame")
 UICorner = Instance.new("UICorner")
 Out = Instance.new("ImageLabel")
@@ -36,12 +40,12 @@ CommandsList = Instance.new("ScrollingFrame")
 UIListLayout = Instance.new("UIListLayout")
 TEMP_CMD = Instance.new("TextLabel")
 SearchBar = Instance.new("TextBox")
-TigerGui.Parent = (game.Players.LocalPlayer.PlayerGui) or gethui())
-TigerGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-TigerGui.Name = math.random()
+ScreenGui.Parent = game.Players.LocalPlayer.PlayerGui or gethui())
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ScreenGui.Name = ("Tegir_odemin")
 
 CmdBarFrame.Name = "CmdBarFrame"
-CmdBarFrame.Parent = TigerGui
+CmdBarFrame.Parent = ScreenGui
 CmdBarFrame.AnchorPoint = Vector2.new(0.5, 0.5)
 CmdBarFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 CmdBarFrame.BackgroundTransparency = 1.000
@@ -113,7 +117,7 @@ do
 	local UICorner = Instance.new("UICorner")
 
 	Toggles.Name = "Toggles"
-	Toggles.Parent = TigerGui
+	Toggles.Parent = ScreenGui
 	Toggles.AnchorPoint = Vector2.new(0.5, 0.5)
 	Toggles.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 	Toggles.Position = UDim2.new(0.499593854, 0, 0.499376595, 0)+UDim2.new(0,0,1,0)
@@ -142,7 +146,7 @@ do
 	kewkfwe.Padding = UDim.new(0, 5)
 
 	tempb.Name = "tempb"
-	tempb.Parent = TigerGui
+	tempb.Parent = ScreenGui
 	tempb.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 	tempb.BackgroundTransparency = 0.550
 	tempb.Position = UDim2.new(0, 0, -7.47979882e-08, 0)
@@ -191,7 +195,7 @@ CommandBar.TextWrapped = true
 UIStroke.Parent = Out
 
 Commands.Name = "Commands"
-Commands.Parent = TigerGui
+Commands.Parent = ScreenGui
 Commands.AnchorPoint = Vector2.new(0.5, 0.5)
 Commands.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 Commands.Position = UDim2.new(0.5, 0, 0.5, 0)
@@ -247,7 +251,7 @@ do
 	})
 end
 
-for i,v in pairs(TigerGui:GetDescendants()) do v.Name = game:GetService("HttpService"):GenerateGUID(true) end
+for i,v in pairs(ScreenGui:GetDescendants()) do v.Name = game:GetService("HttpService"):GenerateGUID(true) end
 local AmmountCurrent = 0
 local commandsLol = {}
 function API:CreateCmd(Header, Description, Callback,IsHide,Extra,IsPre,plsdonotlower)
@@ -327,7 +331,7 @@ function API:Notif(Text,Dur)
 		if not Dur then
 			Dur = 1.5
 		end
-		local Notif = Instance.new("TigerGui")
+		local Notif = Instance.new("ScreenGui")
 		local Frame_1 = Instance.new("Frame")
 		local TextLabel = Instance.new("TextLabel")
 		Notif.Parent = (game:GetService("CoreGui") or gethui())
@@ -3084,7 +3088,7 @@ do
 		game:GetService("Workspace").Camera.CameraSubject = plr.Character.Humanoid 
 		CmdBarFrame:TweenPosition(CmdBarFrame.Position-UDim2.new(0,0,-.5,0),"Out","Back",.8)
 		wait(1)
-		TigerGui:Destroy()
+		ScreenGui:Destroy()
 	end)
 end
 --
@@ -3198,12 +3202,12 @@ SearchBar.Changed:Connect(function(Changed)
 			for i,v in pairs(CommandsList:GetChildren()) do
 				if v:IsA("TextLabel") then
 					if not string.lower(v.Text):match(string.lower(SearchBar.Text)) then
-						v.Parent = TigerGui
+						v.Parent = ScreenGui
 						v.Visible = false
 					end
 				end
 			end
-			for i,v in pairs(TigerGui:GetChildren()) do
+			for i,v in pairs(ScreenGui:GetChildren()) do
 				if v.Name == "TEMP_CMD" then
 					if string.lower(v.Text):match(string.lower(SearchBar.Text)) then
 						v.Parent = CommandsList
@@ -3213,7 +3217,7 @@ SearchBar.Changed:Connect(function(Changed)
 			end
 		elseif #SearchBar.Text <1 then
 			for i,v in pairs(layout) do
-				v.Parent = TigerGui
+				v.Parent = ScreenGui
 				v.Visible = false
 			end
 			task.wait()
