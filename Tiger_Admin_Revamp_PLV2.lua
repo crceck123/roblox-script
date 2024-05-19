@@ -9,7 +9,7 @@ if not workspace:FindFirstChild("Criminals Spawn") or not workspace:FindFirstChi
 	game:GetService("StarterGui"):SetCore("SendNotification", {Title = "Tiger Admin",Text = "Criminals spawn not found! Please rejoin.",Duration = 10,})
 end
 game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart")
-if game:FindFirstChild("Tiger_revamp_loaded") then  ((getgenv and getgenv()) or _G).NotifTiger("Tiger admin is already executed!",false) return warn("Already loaded") end
+if game:FindFirstChild("Tiger_admin_loaded") then  ((getgenv and getgenv()) or _G).NotifTiger("Tiger admin is already executed!",false) return warn("Already loaded") end
 local Player, plr,Folder = game:GetService("Players").LocalPlayer, game:GetService("Players").LocalPlayer,Instance.new("Folder",game)
 local OldHook, hookmetamethod, getnamecallmethod = nil, hookmetamethod, getnamecallmethod
 local HasGamepass,UserInputService = game:GetService("MarketplaceService"):UserOwnsGamePassAsync(Player.UserId, 96651),game:GetService("UserInputService")
@@ -40,7 +40,7 @@ CommandsList = Instance.new("ScrollingFrame")
 UIListLayout = Instance.new("UIListLayout")
 TEMP_CMD = Instance.new("TextLabel")
 SearchBar = Instance.new("TextBox")
-TigerGui.Parent = (game:GetService("CoreGui")) or gethui())
+TigerGui.Parent = (game.Players.LocalPlayer.PlayerGui) or gethui())
 TigerGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 TigerGui.Name = math.random()
 
