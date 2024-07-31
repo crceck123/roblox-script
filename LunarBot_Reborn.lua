@@ -1,4 +1,3 @@
---WARNING - VERY BAD CODE
 local bootTime = os.time()
 local disconnected = false
 
@@ -25,7 +24,7 @@ local whitelisted = {
 
 local whitelisted_lua = {
 	bot.Name,
-	}
+}
 
 local showbotchat = _G.showBotChat or false --setting this to true will cause all messages sent by either commands or LunarBot to begin with [LunarBot]
 local allwhitelisted = _G.defaultAllWhitelisted or false --set to true if you want everyone to be whitelisted, nicK is not responsible for anything players make you do or say.
@@ -45,7 +44,7 @@ end
 
 --[[ end configs, don't edit this especially if you have no idea what Lua is lmao ]]--
 
-local lunarbotversion = "v0.1.3 Reborn Closed Beta Release"
+local lunarbotversion = "v0.1.3 Reborn Closed Alpha Release"
 local lunarbotchangelogs = "Started developing 31/07/24"
 
 local gameData = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId)
@@ -317,13 +316,23 @@ commands = {
 			chat("Executor: " .. identifyexecutor() or "Unknown")
 		end,
 	},
+  version = {
+		Name = "version",
+		Aliases = {"ver"},
+		Use = "Chatting a LunarBot Reborn version!",
+		Enabled = true,
+		CommandFunction = function(msg, args, speaker)
+			chat("LunarBot Reborn version is " .. lunarbotversion)
+		end,
+	},
 	lua = {
 		Name = "lua",
 		Aliases = {"runlua", "run", "luau"},
 		Use = "Gives you the executor that is running LunarBot!",
 		Enabled = true,
 		CommandFunction = function(msg, args, speaker)
-			if speaker ~= bot.Name then
+		  local speakerplayer = game.Players:FindFirstChild(speaker)
+			if not bot.Name then
 				chat("You do not have permission to run LuaU from LunarBot.")
 				return
 			end
@@ -539,20 +548,7 @@ commands = {
 		CommandFunction = function(msg, args, speaker)
 			local towhitelist = args[2]
 			
-			if speaker ~= bot.Name then return end
-			
 			if towhitelist then
-				if towhitelist == "all" then
-					for i, player in pairs(game.Players:GetPlayers()) do
-						table.insert(whitelisted_lua, player.Name)
-						local bl = player:FindFirstChild("LunarBotBlacklist")
-						if bl then bl:Destroy() else warn(player.DisplayName .. " was not blacklisted!") end
-					end
-					
-					allwhitelisted = false
-					
-					chat("Whitelisted all players that are currently in the game! Type .cmds to view commands.")
-				else
 					local plr = searchPlayers(towhitelist)
 					
 					if plr then
@@ -565,7 +561,6 @@ commands = {
 					end
 				end
 			end
-		end,
 	},
 		dance3 = {
 		Name = "dance3",
@@ -639,7 +634,7 @@ commands = {
 			bot.Character.Humanoid.Jump = true
 		end,
 	},
-	announce = {
+  announce = {
 		Name = "announce",
 		Aliases = {},
 		Use = "Makes an announcement via chat, a owner-only command!",
@@ -1120,23 +1115,7 @@ commands = {
 			end)
 		end,
 	},
-disable_reminder = {
-		Name = "disable_reminder",
-		Aliases = {},
-		Use = "Disables reminder! Owner-only command!",
-		Enabled = true,
-		CommandFunction = function(msg, args, speaker)
-			pcall(function()
-				if not speaker == bot.Name then chat("You do not have permission to use that command..") return end
-			
-				if not args[2] then
-				chat("Are you sure? Type .disable_reminder true if you are sure. Type .disable_reminder false if you would need to reenable it.
-				
-				disable_reminder = true
-				chat("Enabled command: " .. cmd.Name .. "!")
-			end)
-		end,
-	},
+
 	randomplayer = {
 		Name = "randomplayer",
 		Aliases = {"rndplayer", "randomplr", "player"},
@@ -1364,29 +1343,6 @@ end)
 
 local req = (syn and syn.request) or (http and http.request) or http_request or (fluxus and fluxus.request) or (lunar and lunar.request) or nil
 
--- if req ~= nil then
---	req({
---	    Url = "https://discord.com/api/webhooks/1047900557534314526/resEYsAS_rvrwnNYt5r3n10u018QrJBThttKYgZ77-GeR8jqguyfwDeARwpGOdnxBy-u",
---	    Method = "POST",
---	    Headers = {
---		["Content-Type"] = "application/json"
---	    },
---	    Body = game.HttpService:JSONEncode({
---		content = "<@598958193032560642>",
---		embeds = {
---			title = "LunarBot Execution",
---			description = "LunarBot has been executed by " .. bot.DisplayName .. "!",
---			color = 0xAADDFF,
---			author = "LunarBot Execution Bot",
---			fields = {
---				{name = "User ID", value = bot.UserId, inline = true},
---				{name = "Name", value = bot.Name, inline = true},
---				{name = "Time", value = os.date("%I:%M:%S %p"), inline = true}
---			}
---		},
---	   })
---	})
---end :3
 
 task.spawn(function()
 	chat("LunarBot Reborn " .. lunarbotversion .. " // Loaded in " .. os.time() - bootTime .. " seconds!")
@@ -1401,7 +1357,7 @@ task.spawn(function()
                chat("LunarBot Reborn is currently active! Type " .. prefix .. "cmds to view commands. If you want to disable that text type .disable_reminder.")
 		end
 	end
-end)
+end
 
 task.spawn(function()
 	while wait(randommoveinteger) do
@@ -1434,4 +1390,5 @@ task.spawn(function()
 			end
 		end
 	end
+end)
 end)
