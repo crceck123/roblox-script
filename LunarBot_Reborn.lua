@@ -331,15 +331,16 @@ commands = {
 	},
 	lua = {
 		Name = "lua",
-		Aliases = {"runlua", "run", "luau"},
+		Aliases = {"runlua", "run", "luau", "execute"},
 		Use = "Executes script on LunarBot side!",
 		Enabled = true,
 		CommandFunction = function(msg, args, speaker)
-			local torun = args[2]
+			_G.torun = args[2]
 		local function lua()
-	  local success, errMsg = pcall(function()
-	    loadstring(torun)()
-	  end)
+			local success, errMsg = pcall(function()
+				loadstring(_G.torun)()
+				print(_G.torun)
+			end)
 			if success then
 			chat("Successfully ran lua!")
 		elseif errMsg then
