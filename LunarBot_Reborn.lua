@@ -20,12 +20,16 @@ end
 
 local whitelisted = {
 	bot.Name,
+  "Temasa3"
 }
-
+--idk why i didnt removed whitelisted_lua xd
 local whitelisted_lua = {
 	bot.Name,
 }
 
+_G.whitelisted_lua1 = bot.Name
+_G.whitelisted_lua2 = bot.Name
+_G.whitelisted_lua3 = bot.Name
 local showbotchat = _G.showBotChat or false --setting this to true will cause all messages sent by either commands or LunarBot to begin with [LunarBot]
 local allwhitelisted = _G.defaultAllWhitelisted or false --set to true if you want everyone to be whitelisted, nicK is not responsible for anything players make you do or say.
 local randommoveinteger = _G.defaultRandomMoveInteger or 15 --interval in which how long randommove waits until choosing another direction
@@ -74,7 +78,7 @@ end
 local funfacts = {
 	"LunarBot was created on 11/17/22.",
 	"I got an idea to make LunarBot Reborn on 31/07/24.",
-	"Some commands of LunarBot Reborn are skidded.",
+	"Some commands of LunarBot Reborn are not skidded.",
 	"The developer of LunarBot has made 2 other scripts: Lunar AI and LunarHub.",
 	"The khord server uses an external invite service so we can get a custom invite because we don't have nitro. d.io/LunarCrocs",
 	"My dad came back from getting the milk 0.03 seconds ago.",
@@ -113,7 +117,7 @@ local commandsMessage = {
 	"setprefix <newPrefix>, setstatus <newStatus>, clearStatus, point, wave, funfact, time, speed, fps, sit, rush, randommove, randomplayer, rickroll, disablecommand <command>",
 	"salute, announce <announcement>, help <command>, jobid, aliases <command>, math <operation> <nums>, changelogs, gamename, playercount, maxplayers, toggleall, setinterval",
 	"lua <lua>, ping, catch <player>, copychat <player>, cheer, stadium, spin <speed>, float <height>, orbit <speed> <radius>, jump, follow, unfollow, executor",
-	"bring, walkto <player>, IY <command>(only if nameless admin executed, doesn't work for now), NA <command>(only if it is executed, doesn't work for now), whitelist_lua <player>.",
+	"bring, walkto <player>, IY <command>(only if nameless admin executed, doesn't work for now), NA <command>(only if it is executed, doesn't work for now), whitelistlua <player> <table>.",
 }
 
 local orbitcon
@@ -328,26 +332,35 @@ commands = {
 	lua = {
 		Name = "lua",
 		Aliases = {"runlua", "run", "luau"},
-		Use = "Gives you the executor that is running LunarBot!",
+		Use = "Executes script on LunarBot side!",
 		Enabled = true,
 		CommandFunction = function(msg, args, speaker)
+		local function lua()
+		  local torun = args[2]
+	  local success, errMsg = pcall(function()
+	    loadstring(torun)()
+	  end)
 		  local speakerplayer = game.Players:FindFirstChild(speaker)
-			if not bot.Name then
-				chat("You do not have permission to run LuaU from LunarBot.")
-				return
+			if speakerplayer.Name == _G.whitelisted_lua1 then
+			  lua() else
+			  if speakerplayer.Name == bot.Name then
+			  lua() else
+			    if speakerplayer.Name == _G.whitelisted_lua2 then
+			      lua() else
+			      if speakerplayer.Name == _G.whitelisted_lua3 then
+			        lua() else
+			        chat("Not autorized!!!") --idk what to put here
+			      end
+			      end
+			      end
 			end
-			
-			local torun = string.sub(msg, 5)
-			
-			local success, errMsg = pcall(function()
-				loadstring(torun)()
-			end)
-			
+	
 			if success then
 				chat("Successfully ran LuaU with no errors.")
 			elseif not success and errMsg then
 				chat("Failed to run LuaU with error in Developer Console [F9]!")
 			end
+		end
 		end,
 	},
 	setinterval = {
@@ -540,29 +553,36 @@ commands = {
 			game:GetService("Players"):Chat("/e dance2")
 		end,
 	},
-	whitelist_lua = {
+	whitelistlua = {
 		Name = "Lua whitelist",
-		Aliases = {},
+		Aliases = {"wlua"},
 		Use = "Whitelists user for code executing! Owner only.",
 		Enabled = true,
 		CommandFunction = function(msg, args, speaker)
 			local towhitelist = args[2]
-			
+		  local table_whatisthis = args[3] --yififififif
 			if towhitelist then
 					local plr = searchPlayers(towhitelist)
-					
 					if plr then
-						table.insert(whitelisted_lua, plr.Name)
-						local bl = plr:FindFirstChild("LunarBotBlacklist")
-						if bl then bl:Destroy() else warn(player.DisplayName .. " was not blacklisted!") end
-						chat("Whitelisted " .. plr.DisplayName .. "! Type .lua to execute a script.")
-					else
-						chat("Failed to whitelist player - User not found!")
+						if table_whatisthis == "1" or "2" or "3" then
+						  if table_whatisthis == "1" then
+						    chat("success, whitelisted " .. towhitelist)
+						  	_G.whitelisted_lua1 = towhitelist
+						    elseif table_whatisthis == "2" then
+						      _G.whitelisted_lua2 = towhitelist
+						    chat("success, whitelisted " .. towhitelist)
+						      elseif table_whatisthis == "3" then
+						       _G.whitelisted_lua3 = towhitelist
+						        chat("success, whitelisted " .. towhitelist)
+						      else
+						      	chat("Example of using command: .whitelist_lua builderman (1, 2, 3)")
+						      end
+						end
 					end
-				end
 			end
-	},
-		dance3 = {
+		end
+},
+dance3 = {
 		Name = "dance3",
 		Aliases = {},
 		Use = "Makes LunarBot dance!",
@@ -652,7 +672,7 @@ commands = {
 	whitelist = {
 		Name = "whitelist",
 		Aliases = {"wl"},
-		Use = "Whitelists a player, meaning they can use LunarBot. An owner-only command!",
+		Use = "Whitelists a player, meaning they can use LunarBot Reborn. An owner-only command!",
 		Enabled = true,
 		CommandFunction = function(msg, args, speaker)
 			local towhitelist = args[2]
