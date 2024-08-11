@@ -340,13 +340,13 @@ commands = {
 			local success, errMsg = pcall(function()
 				loadstring(run)()
 				print(run)
-			end)
 			if success then
 			chat("Successfully ran lua!")
 		elseif errMsg then
 			chat("Failed to run lua! Error:")
 			chat(errMsg)
-end
+		end
+end)
 
 		  local speakerplayer = game.Players:FindFirstChild(speaker)
 			if speakerplayer.Name == _G.whitelisted_lua1 then
