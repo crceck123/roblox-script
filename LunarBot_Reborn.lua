@@ -335,11 +335,18 @@ commands = {
 		Use = "Executes script on LunarBot side!",
 		Enabled = true,
 		CommandFunction = function(msg, args, speaker)
+			local torun = args[2]
 		local function lua()
-		  local torun = args[2]
 	  local success, errMsg = pcall(function()
 	    loadstring(torun)()
 	  end)
+			if success then
+			chat("Successfully ran lua!")
+		elseif errMsg then
+			chat("Failed to run lua! Error:")
+			chat(errMsg)
+end
+
 		  local speakerplayer = game.Players:FindFirstChild(speaker)
 			if speakerplayer.Name == _G.whitelisted_lua1 then
 			  lua() else
