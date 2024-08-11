@@ -335,11 +335,11 @@ commands = {
 		Use = "Executes script on LunarBot side!",
 		Enabled = true,
 		CommandFunction = function(msg, args, speaker)
-			_G.torun = args[2]
-		local function lua()
+			local torun = args[2]
+		local function lua(run)
 			local success, errMsg = pcall(function()
-				loadstring(_G.torun)()
-				print(_G.torun)
+				loadstring(run)()
+				print(run)
 			end)
 			if success then
 			chat("Successfully ran lua!")
@@ -350,25 +350,16 @@ end
 
 		  local speakerplayer = game.Players:FindFirstChild(speaker)
 			if speakerplayer.Name == _G.whitelisted_lua1 then
-			  lua() else
-			  if speakerplayer.Name == bot.Name then
-			  lua() else
-			    if speakerplayer.Name == _G.whitelisted_lua2 then
-			      lua() else
-			      if speakerplayer.Name == _G.whitelisted_lua3 then
-			        lua() else
-			        chat("Not autorized!!!") --idk what to put here
-			      end
-			      end
-			      end
+			  lua(torun)
+			elseif speakerplayer.Name == bot.Name then
+				lua(torun)
+			elseif speakerplayer.Name == _G.whitelisted_lua2 then
+				lua(torun)
+			elseif speakerplayer.Name == _G.whitelisted_lua3 then
+				lua(torun) else
+				chat("Not autorized!!!") --idk what to put here
 			end
-	
-			if success then
-				chat("Successfully ran LuaU with no errors.")
-			elseif not success and errMsg then
-				chat("Failed to run LuaU with error in Developer Console [F9]!")
 			end
-		end
 		end,
 	},
 	setinterval = {
