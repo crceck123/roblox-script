@@ -1,3 +1,4 @@
+if _G.NoGUIFly = true then
 :connect(function()
 local speaker = game:GetService("Players").LocalPlayer
 
