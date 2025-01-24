@@ -6,6 +6,7 @@
 /_______  /\____/|____(____  /__|  |__/____  >
         \/                 \/              \/ 
 made with love by toasty.
+aaaaa
 ]]
 
 local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Consistt/Ui/main/UnLeaked"))()
@@ -13,6 +14,8 @@ local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Consistt/
 if game.PlaceId == 286090429 then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/toasty-dev/pissblox/main/games/solarisarsenal_beta.lua",true))()
 elseif game.PlaceId == 301549746 then
+loadstring(game:HttpGet("https://raw.githubusercontent.com/toasty-dev/pissblox/main/games/solariscb.lua",true))()
+elseif game.PlaceId == 72305758937151 then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/toasty-dev/pissblox/main/games/solariscb.lua",true))()
 elseif game.PlaceId == 97463085072346 then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/toasty-dev/pissblox/main/games/solariscb.lua",true))()
