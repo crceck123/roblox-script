@@ -27,6 +27,8 @@ elseif game.PlaceId == 97463085072346 then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/toasty-dev/pissblox/main/games/solariscb.lua",true))()
 elseif game.PlaceId == 1480424328 then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/toasty-dev/pissblox/main/games/solariscb.lua",true))()
+elseif game.PlaceId == 101319447610833 then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/toasty-dev/pissblox/main/games/solariscb.lua",true))()
 elseif game.PlaceId == 84957635803107 then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/toasty-dev/pissblox/main/games/solariscb.lua",true))()
 elseif game.PlaceId == 18976527873 then
