@@ -45,6 +45,8 @@ elseif game.PlaceId == 15144787112 then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/toasty-dev/pissblox/main/games/solarisbb.lua",true))()
 elseif game.PlaceId == 16581648071 then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/toasty-dev/pissblox/main/games/solarisbb.lua",true))()
+elseif game.PlaceId == 101506913585940 then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/toasty-dev/pissblox/main/games/solarisbb.lua",true))()
 elseif game.PlaceId == 15517169103 then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/toasty-dev/pissblox/main/games/solarisbb.lua",true))()
 elseif game.PlaceId == 15131065025 then
