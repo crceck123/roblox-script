@@ -8,7 +8,7 @@
 made with love by toasty.
 aaaaa
 ]]
-
+local any_game true
 local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Consistt/Ui/main/UnLeaked"))()
 
 if game.PlaceId == 286090429 then
@@ -38,24 +38,24 @@ elseif game.PlaceId == 17586052747 then
 elseif game.PlaceId == 1869597719 then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/toasty-dev/pissblox/main/games/solariscb.lua",true))()
 elseif game.PlaceId == 16281300371 then
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/toasty-dev/pissblox/main/games/solarisbb.lua",true))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/toasty-dev/pissblox/main/games/solariscb.lua",true))()
 elseif game.PlaceId == 14915220621 then
-  loadstring(game:HttpGet("https://raw.githubusercontent.com/toasty-dev/pissblox/main/games/solarisbb.lua",true))()
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/toasty-dev/pissblox/main/games/solariscb.lua",true))()
 elseif game.PlaceId == 15144787112 then
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/toasty-dev/pissblox/main/games/solarisbb.lua",true))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/toasty-dev/pissblox/main/games/solariscb.lua",true))()
 elseif game.PlaceId == 16581648071 then
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/toasty-dev/pissblox/main/games/solarisbb.lua",true))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/toasty-dev/pissblox/main/games/solariscb.lua",true))()
 elseif game.PlaceId == 101506913585940 then
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/toasty-dev/pissblox/main/games/solarisbb.lua",true))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/toasty-dev/pissblox/main/games/solariscb.lua",true))()
 elseif game.PlaceId == 15517169103 then
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/toasty-dev/pissblox/main/games/solarisbb.lua",true))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/toasty-dev/pissblox/main/games/solariscb.lua",true))()
 elseif game.PlaceId == 15131065025 then
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/toasty-dev/pissblox/main/games/solarisbb.lua",true))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/toasty-dev/pissblox/main/games/solariscb.lua",true))()
 elseif game.PlaceId == 16331600459 then
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/toasty-dev/pissblox/main/games/solarisbb.lua",true))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/toasty-dev/pissblox/main/games/solariscb.lua",true))()
 elseif game.PlaceId == 13772394625 then
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/toasty-dev/pissblox/main/games/solarisbb.lua",true))()
-  elseif game.PlaceId -= 0 then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/toasty-dev/pissblox/main/games/solariscb.lua",true))()
+  elseif any_game == true then
   loadstring(game:HttpGet("https://raw.githubusercontent.com/toasty-dev/pissblox/main/games/solariscb.lua",true))()
 else
     local notsupported = lib:InitNotifications():Notify("This game isn't supported for Solaris yet. If this game is popular please add in suggestions", 3, "information")
