@@ -8,7 +8,7 @@
 made with love by toasty.
 aaaaa
 ]]
-local any_game true
+local any_game = true
 local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Consistt/Ui/main/UnLeaked"))()
 
 if game.PlaceId == 286090429 then
