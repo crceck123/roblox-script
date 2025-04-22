@@ -14,7 +14,7 @@ local UserInputService = game:GetService("UserInputService")
 local http = game:GetService("HttpService")
 local Player = game:GetService("Players").LocalPlayer
 
-local BuildInfo = loadstring(game:HttpGet"https://pastebin.com/raw/HzAeDGm4")()
+local BuildInfo = loadstring(game:HttpGet("https://raw.githubusercontent.com/crceck123/roblox-script/refs/heads/main/NL_build")()
 
 local function MakeDraggable(topbarobject, object)
     local Dragging = nil
