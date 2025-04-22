@@ -1,0 +1,15 @@
+local Build_Info = {}
+
+function Build_Info:VersionType()
+    return '1.0.1'
+end
+
+function Build_Info:GetBuild()
+    return 'Aug 11 2023'
+end
+
+function Build_Info:GetBuildType()
+    return 'BETA'
+end
+
+return Build_Info
